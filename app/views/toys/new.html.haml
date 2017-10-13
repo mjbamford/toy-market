@@ -1,0 +1,7 @@
+%h1
+  Sell a Toy
+= form_for @toy do |f|
+  = f.text_field :name
+  = f.text_area :description
+  = f.submit 'OK'
+  = link_to 'Cancel', :back

@@ -5,4 +5,9 @@ RSpec.describe "routing to toys", type: :routing do
     toys_route = { controller: 'toys', action: 'index' }
     expect(get: '/toys').to route_to toys_route
   end
+
+  it "routes /toys/new to toys#new" do
+    toys_route = { controller: 'toys', action: 'new' }
+    expect(get: '/toys/new').to route_to toys_route
+  end
 end
