@@ -13,4 +13,11 @@ RSpec.describe ToysController, type: :controller do
       expect(assigns :toys).to match toys
     end
   end
+
+  describe "GET #new" do
+    it "shows new toy form" do
+      get :new
+      expect(response).to be_successful
+    end
+  end
 end
