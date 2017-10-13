@@ -23,15 +23,11 @@ ActiveRecord::Schema.define(version: 20171013071624) do
   end
 
   create_table "toys", force: :cascade do |t|
-    t.integer "seller_id", null: false
-    t.integer "buyer_id", null: false
     t.string "name"
     t.text "description"
     t.string "state", default: "draft"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buyer_id"], name: "index_toys_on_buyer_id"
-    t.index ["seller_id"], name: "index_toys_on_seller_id"
   end
 
 end
