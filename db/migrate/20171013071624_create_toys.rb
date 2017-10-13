@@ -4,6 +4,7 @@ class CreateToys < ActiveRecord::Migration[5.1]
       t.string     :name
       t.text       :description
       t.string     :state, default: 'draft'
+      t.decimal    :price, scale: 2, precision: 8, default: 0.0
       t.timestamps
     end
   end

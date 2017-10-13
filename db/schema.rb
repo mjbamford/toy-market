@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20171013071624) do
     t.string "name"
     t.text "description"
     t.string "state", default: "draft"
+    t.decimal "price", precision: 8, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
