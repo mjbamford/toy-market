@@ -4,7 +4,8 @@ RSpec.describe HomesController, type: :controller do
   render_views
 
   describe 'GET #show' do
-    it 'renders the named partial' do
+    it "renders the 'welcome' partial" do
+      create :welcome_home
       get :show, params: { name: 'welcome' }
       expect(response.body).to match /welcome/i
     end

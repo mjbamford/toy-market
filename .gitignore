@@ -19,6 +19,7 @@
 !/log/.keep
 !/tmp/.keep
 /spec/tmp
+/public/system/
 
 /node_modules
 /yarn-error.log
@@ -31,4 +32,4 @@ config/initializers/secret_token.rb
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
-.env
+.env*
