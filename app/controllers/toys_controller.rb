@@ -10,6 +10,10 @@ class ToysController < ApplicationController
     @toys = Toy.all
   end
 
+  def show
+    @toy = Toy.find params[:id]
+  end
+
   def new
     @toy = new_toy
   end
