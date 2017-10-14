@@ -1,5 +1,5 @@
 class ToysController < ApplicationController
-  TOY_PERMITTED_PARAMS = %i[ name description price ]
+  TOY_PERMITTED_PARAMS = %i[ name description price image ]
 
   rescue_from ActionController::ParameterMissing do
     @toy = new_toy

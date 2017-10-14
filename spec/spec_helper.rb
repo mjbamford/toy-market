@@ -93,4 +93,10 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  # Tidy up paperclip's work directory
+  # See https://github.com/thoughtbot/paperclip#testing
+  config.after(:suite) do
+    FileUtils.rm_rf Dir["#{Rails.root}/spec/tmp/"]
+  end
 end
