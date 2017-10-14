@@ -17,15 +17,15 @@ RSpec.describe ToysController, type: :controller do
     end
   end
 
-  describe "GET #new" do
+  describe 'GET #new' do
     it 'shows new toy form' do
       get :new
       expect(response).to be_successful
     end
   end
 
-  describe "GET #show" do
-    it "returns a success response" do
+  describe 'GET #show' do
+    it 'returns a success response' do
       toy = Toy.create! valid_attrs
       get :show, params: { id: toy.to_param }
       expect(response).to be_successful
@@ -46,16 +46,16 @@ RSpec.describe ToysController, type: :controller do
       end
     end
 
-    context "with invalid params" do
-      context "when model rejects attrs" do
-        it "returns success to render 'new'" do
+    context 'with invalid params' do
+      context 'when invalid model' do
+        it 'returns success to render "new"' do
           post :create, params: { toy: invalid_attrs }
           expect(response).to be_successful
         end
       end
 
-      context "when toy param missing" do
-        it "returns success to render 'new'" do
+      context 'when missing required permitted_param' do
+        it 'returns success to render "new"' do
           post :create, params: {}
           expect(response).to be_successful
         end
