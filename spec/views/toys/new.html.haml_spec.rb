@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'toys/new', type: :view do
-  before { assign :toy, Toy.new }
+  before do
+    assign :toy, Toy.new
+  end
 
   it 'renders a toy form' do
     render
