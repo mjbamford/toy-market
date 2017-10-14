@@ -1,2 +1,2 @@
 # Create Home pages
-Home.create! name: 'welcome'
+Home.find_or_create_by! name: 'welcome'
