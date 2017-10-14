@@ -8,6 +8,7 @@ RSpec.describe 'toys/new', type: :view do
     assert_select 'form[action=?][method=?]', toys_path, 'post' do
       assert_select 'input[name=?]', 'toy[name]'
       assert_select 'textarea[name=?]', 'toy[description]'
+      assert_select 'input[name=?]', 'toy[price]'
       assert_select 'input[name=?][value=?]', 'commit', 'OK'
       assert_select 'a', text: 'Cancel'
     end
