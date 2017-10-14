@@ -2,6 +2,7 @@
   Sell a Toy
 = form_for @toy do |f|
   = f.text_field :name
-  = f.text_area :description
+  = f.text_area  :description
+  = f.text_field :price
   = f.submit 'OK'
   = link_to 'Cancel', :back
