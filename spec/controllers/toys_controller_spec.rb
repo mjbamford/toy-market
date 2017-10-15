@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe ToysController, type: :controller do
   render_views
 
-  let(:valid_attrs) { attributes_for :toy }
+  let(:seller) { create :seller }
+  let(:valid_attrs) { (attributes_for :toy).merge seller_id: seller.id }
   let(:invalid_attrs) {{ name: nil }}
 
   describe 'GET #index' do
@@ -26,7 +27,7 @@ RSpec.describe ToysController, type: :controller do
 
   describe 'GET #show' do
     it 'returns a success response' do
-      toy = Toy.create! valid_attrs
+      toy = create :toy
       get :show, params: { id: toy.to_param }
       expect(response).to be_successful
     end
