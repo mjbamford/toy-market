@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   MESSAGE_PERMITTED_PARAMS = %i[ recipient_id text ]
 
   def index
-    @messages = Message.all
+    @messages = current_user.message_roots
   end
 
   def show
@@ -10,7 +10,8 @@ class MessagesController < ApplicationController
   end
 
   def new
-    @message = current_user.sent_messages.new recipient: current_user
+    parent = Message.find_by id: params[:parent_id]
+    @message = current_user.sent_messages.new recipient: current_user, parent: parent
   end
 
   def create

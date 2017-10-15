@@ -26,12 +26,14 @@ ActiveRecord::Schema.define(version: 20171015033250) do
     t.bigint "sender_id", null: false
     t.bigint "recipient_id", null: false
     t.bigint "parent_id"
+    t.bigint "root_id"
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["parent_id"], name: "index_messages_on_parent_id"
     t.index ["recipient_id"], name: "index_messages_on_recipient_id"
+    t.index ["root_id"], name: "index_messages_on_root_id"
     t.index ["sender_id"], name: "index_messages_on_sender_id"
   end
 
@@ -46,7 +48,7 @@ ActiveRecord::Schema.define(version: 20171015033250) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-    t.bigint "seller_id", null: false
+    t.bigint "seller_id"
     t.bigint "buyer_id"
     t.index ["buyer_id"], name: "index_toys_on_buyer_id"
     t.index ["seller_id"], name: "index_toys_on_seller_id"
@@ -61,6 +63,7 @@ ActiveRecord::Schema.define(version: 20171015033250) do
   end
 
   add_foreign_key "messages", "messages", column: "parent_id"
+  add_foreign_key "messages", "messages", column: "root_id"
   add_foreign_key "messages", "users", column: "recipient_id"
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "toys", "users", column: "buyer_id"
