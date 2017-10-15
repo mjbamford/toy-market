@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe ToysController, type: :controller do
   render_views
 
-  let(:seller) { create :seller }
-  let(:valid_attrs) { (attributes_for :toy).merge seller_id: seller.id }
+  let(:valid_attrs) { attributes_for :toy }
   let(:invalid_attrs) {{ name: nil }}
 
   describe 'GET #index' do
