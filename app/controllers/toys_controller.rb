@@ -1,5 +1,5 @@
 class ToysController < ApplicationController
-  TOY_PERMITTED_PARAMS = %i[ name description price image ]
+  TOY_PERMITTED_PARAMS = %i[ name description price image buyer_id ]
 
   rescue_from ActionController::ParameterMissing do
     @toy = new_toy
@@ -37,6 +37,6 @@ class ToysController < ApplicationController
   end
 
   def new_toy attrs = {}
-    Toy.new attrs
+    current_user.toys_to_sell.new attrs
   end
 end

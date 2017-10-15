@@ -5,6 +5,6 @@ class Toy < ApplicationRecord
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
-  # belongs_to :seller, class: 'User'
-  # belongs_to :buyer, class: 'User'
+  belongs_to :seller, class_name: 'User'
+  belongs_to :buyer,  class_name: 'User', optional: true
 end

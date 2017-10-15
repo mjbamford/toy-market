@@ -26,7 +26,7 @@ RSpec.describe ToysController, type: :controller do
 
   describe 'GET #show' do
     it 'returns a success response' do
-      toy = Toy.create! valid_attrs
+      toy = create :toy
       get :show, params: { id: toy.to_param }
       expect(response).to be_successful
     end
