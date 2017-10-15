@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Toys', type: :request do
-  let(:seller) { create :seller }
-  let(:valid_attrs) { (attributes_for :teddy_bear).merge seller_id: seller.id }
+  let(:valid_attrs) { attributes_for :teddy_bear }
 
   describe 'POST /toys' do
     it 'accepts a teddy bear' do
