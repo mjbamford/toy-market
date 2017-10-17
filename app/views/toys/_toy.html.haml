@@ -6,4 +6,11 @@
   %p
     = toy.description
   %p
-    = link_to 'Message Seller', 
+    = number_to_currency toy.price
+  %p
+    Seller:
+    = toy.seller.first_name
+    = toy.seller.last_name
+  - if toy.seller_id != current_user.id
+    %p
+      = link_to 'Message Seller', (new_message_path recipient_id: toy.seller_id)
