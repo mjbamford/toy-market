@@ -16,4 +16,7 @@ if Rails.env.development?
   # Create Toys
   toy = build :teddy_bear, seller: sally
   (sally.toys_to_sell.find_by name: toy.name) or toy.save!
+
+  toy = build :train, seller: barry
+  (barry.toys_to_sell.find_by name: toy.name) or toy.save!
 end

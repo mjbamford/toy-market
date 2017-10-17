@@ -9,4 +9,10 @@ FactoryGirl.define do
     description 'A big brown teddy bear'
     image Rack::Test::UploadedFile.new Rails.root.join 'spec', 'fixtures', 'teddy-bear.jpg'
   end
+
+  factory :train, parent: :toy do
+    name 'Train Set'
+    description 'A wodden train'
+    image Rack::Test::UploadedFile.new Rails.root.join 'spec', 'fixtures', 'train.jpg'
+  end
 end
