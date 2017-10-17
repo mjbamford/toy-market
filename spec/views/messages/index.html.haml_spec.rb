@@ -1,23 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe "messages/index", type: :view do
-  before(:each) do
-    assign(:messages, [
-      Message.create!(
-        :sender => (create :user),
-        :recipient => (create :user),
-        :text => "MyText"
-      ),
-      Message.create!(
-        :sender => (create :user),
-        :recipient => (create :user),
-        :text => "MyText"
-      )
-    ])
+  let(:seller) { create :seller }
+  let(:buyer)  { create :buyer }
+
+  before :each do
+    assign :messages, [
+      (create :message, sender: buyer,  recipient: seller, text: 'text'),
+      (create :message, sender: seller, recipient: buyer,  text: 'text')
+    ]
   end
 
   it "renders a list of messages" do
-    render
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
+    without_partial_double_verification do
+      allow(view).to receive(:current_user).and_return seller
+      render
+      assert_select "tr>td", text: "text", count: 2
+    end
   end
 end

@@ -1,10 +1,18 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'Messages', type: :request do
-  describe 'GET /messages' do
-    it 'returns returns status 200' do
-      get messages_path
+RSpec.describe "Messages", type: :request do
+  let!(:seller) { create :seller }
+  let!(:buyer)  { create :buyer }
+
+  describe "login and view messages" do
+    it "shows the messages for the logged in user" do
+      get "/sessions/new"
+      expect(response).to be_successful
+      post "/sessions", params: { username: seller.username, password: '' }
+      expect(response).to be_redirect
+      get "/messages"
       expect(response).to have_http_status 200
+      expect(response.body).to match "Sally's Messages"
     end
   end
 end
