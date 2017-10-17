@@ -1,0 +1,18 @@
+%h1
+  Sell a Toy
+= form_for @toy do |f|
+  %fieldset
+    = f.label :name
+    = f.text_field :name
+  %fieldset
+    = f.label :description
+    = f.text_area  :description
+  %fieldset
+    = f.label :price
+    = f.text_field :price
+  %fieldset
+    = f.label :name
+    = f.file_field :image
+  %fieldset.actions
+    = f.submit 'OK'
+    = link_to 'Cancel', :back

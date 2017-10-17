@@ -1,0 +1,16 @@
+%hr{ style: 'clear:both' }
+%div{ id: (dom_id toy) }
+  = image_tag (toy.image.url :thumb), class: 'toy', style: 'float:left'
+  %h2
+    = toy.name
+  %p
+    = toy.description
+  %p
+    = number_to_currency toy.price
+  %p
+    Seller:
+    = toy.seller.first_name
+    = toy.seller.last_name
+  - if toy.seller_id != current_user.id
+    %p
+      = link_to 'Message Seller', (new_message_path recipient_id: toy.seller_id)

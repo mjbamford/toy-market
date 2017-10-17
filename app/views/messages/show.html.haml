@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%p
+  %b Sender:
+  = @message.sender
+%p
+  %b Recipient:
+  = @message.recipient
+%p
+  %b Text:
+  = @message.text
+
+= link_to 'Back', messages_path
