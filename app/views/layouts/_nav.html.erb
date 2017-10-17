@@ -1,5 +1,5 @@
 <nav>
-  <% unless current_page? new_session_path %>
+  <% unless controller_name == "sessions" %>
     <% if current_user %>
       <%= link_to "Log Out", session_path, method: :delete  %>
     <% else %>
@@ -13,5 +13,11 @@
       <%= current_user.first_name %>
       <%= current_user.last_name %>
     </div>
+    <% unless current_page? controller: 'messages' %>
+      <%= link_to 'Messages', messages_path %>
+    <% end %>
+    <% unless current_page? controller: 'toys' %>
+      <%= link_to 'Toys', toys_path %>
+    <% end %>
   <% end %>
 </nav>
