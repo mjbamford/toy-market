@@ -7,9 +7,9 @@ RSpec.describe "Toys", type: :request do
 
   describe "login and post to toys" do
     it "accepts a teddy bear" do
-      get "/sessions/new"
+      get "/session/new"
       expect(response).to be_successful
-      post "/sessions", params: { username: seller.username, password: '' }
+      post "/session", params: { username: seller.username, password: '' }
       expect(response).to be_redirect
       follow_redirect!
       expect(path).to eq "/toys"

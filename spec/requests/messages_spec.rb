@@ -6,9 +6,9 @@ RSpec.describe "Messages", type: :request do
 
   describe "login and view messages" do
     it "shows the messages for the logged in user" do
-      get "/sessions/new"
+      get "/session/new"
       expect(response).to be_successful
-      post "/sessions", params: { username: seller.username, password: '' }
+      post "/session", params: { username: seller.username, password: '' }
       expect(response).to be_redirect
       get "/messages"
       expect(response).to have_http_status 200

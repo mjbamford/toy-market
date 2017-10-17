@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     respond_to do |format|
-      format.html { redirect_to sessions_url, notice: 'Session was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Session was successfully destroyed.' }
     end
   end
 end
