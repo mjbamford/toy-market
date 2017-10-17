@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if user = (User.find_by username: params[:username])
         session[:user_id] = user.id
-        format.html { redirect_to toys_path, notice: 'Session was successfully created.' }
+        format.html { redirect_to toys_path }
       else
         format.html { render :new }
       end

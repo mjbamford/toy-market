@@ -11,8 +11,9 @@ class MessagesController < ApplicationController
   end
 
   def new
+    recipient = User.find params[:recipient_id]
     parent = Message.find_by id: params[:parent_id]
-    @message = current_user.sent_messages.new recipient: current_user, parent: parent
+    @message = current_user.sent_messages.new recipient: recipient, parent: parent
   end
 
   def create
