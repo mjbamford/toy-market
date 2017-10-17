@@ -1,10 +1,9 @@
-%h1 Listing messages
-
+%h1 Messages
 %table
   %thead
     %tr
-      %th Sender
-      %th Recipient
+      %th From
+      %th To
       %th Text
       %th
       %th
@@ -13,12 +12,14 @@
   %tbody
     - @messages.each do |message|
       %tr
-        %td= message.sender
-        %td= message.recipient
+        %td
+          = message.sender.first_name
+          = message.sender.last_name
+        %td
+          = message.recipient.first_name
+          = message.recipient.last_name
         %td= message.text
         %td= link_to 'Show', message
         %td= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' }
-
 %br
-
 = link_to 'New Message', new_message_path

@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+
   MESSAGE_PERMITTED_PARAMS = %i[ recipient_id text ]
 
   def index
@@ -41,6 +42,6 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit MESSAGE_PERMITTED_PARMS
+    params.require(:message).permit MESSAGE_PERMITTED_PARAMS
   end
 end
