@@ -12,10 +12,8 @@ RSpec.describe "messages/index", type: :view do
   end
 
   it "renders a list of messages" do
-    without_partial_double_verification do
-      allow(view).to receive(:current_user).and_return seller
-      render
-      assert_select "tr>td", text: "text", count: 2
-    end
+    allow(view).to receive(:current_user).and_return seller
+    render
+    assert_select "tr>td", text: "text", count: 2
   end
 end
