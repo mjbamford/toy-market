@@ -2,10 +2,12 @@
 
 %p
   %b Sender:
-  = @message.sender
+  = @message.sender.first_name
+  = @message.sender.last_name
 %p
   %b Recipient:
-  = @message.recipient
+  = @message.recipient.first_name
+  = @message.recipient.last_name
 %p
   %b Text:
   = @message.text

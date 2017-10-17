@@ -1,8 +1,17 @@
 <nav>
   <% if current_user %>
-    <div style="display:inline-block">
-      <%= link_to "Messages", messages_path %>
-    </div>
+    <% unless current_page? controller: 'toys' %>
+      <div style="display:inline-block">
+        <%= link_to "Toys", toys_path %>
+      </div>
+    <% end %>
+
+    <% unless current_page? controller: 'messages' %>
+      <div style="display:inline-block">
+        <%= link_to "Messages", messages_path %>
+      </div>
+    <% end %>
+
     <div style="float:right">
       Current User:
       <%= current_user.first_name %>

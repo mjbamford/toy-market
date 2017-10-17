@@ -1,4 +1,5 @@
 = form_for @message do |f|
+  = f.hidden_field :recipient_id
   - if @message.errors.any?
     #error_explanation
       %h2= "#{pluralize(@message.errors.count, "error")} prohibited this message from being saved:"
