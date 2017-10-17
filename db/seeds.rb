@@ -1,11 +1,10 @@
-require 'factory_girl'
-include FactoryGirl::Syntax::Methods
-
 # Create Homes
-home = build :welcome_home
-(Home.find_by name: home.name) or home.save!
+Home.find_or_create_by! name: 'welcome'
 
 if Rails.env.development?
+  require 'factory_girl'
+  include FactoryGirl::Syntax::Methods
+
   # Create Users
   sally = build :sallyseller
   (User.find_by username: sally.username) or sally.save!
