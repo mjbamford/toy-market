@@ -1,7 +1,9 @@
+%hr{ style: 'clear:both' }
 %div{ id: (dom_id toy) }
-  helllo
-  %h1
+  = image_tag (toy.image.url :thumb), class: 'toy', style: 'float:left'
+  %h2
     = toy.name
   %p
     = toy.description
-  = image_tag toy.image.url :thumb
+  %p
+    = link_to 'Message Seller', 
