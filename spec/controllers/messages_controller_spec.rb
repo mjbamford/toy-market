@@ -35,10 +35,10 @@ RSpec.describe MessagesController, type: :controller do
   end
 
   describe "GET #edit" do
-    it "returns a success response" do
+    it "rails an error since we're not allowed to edit messages" do
       expect{
         get :edit, params: { id: message.to_param }, session: valid_session
-      }.to raise_exception
+      }.to raise_exception NameError
     end
   end
 
