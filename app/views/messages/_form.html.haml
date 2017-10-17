@@ -5,15 +5,13 @@
       %ul
         - @message.errors.full_messages.each do |message|
           %li= message
-
-  .field
-    = f.label :sender
-    = f.text_field :sender_id
-  .field
-    = f.label :recipient
-    = f.text_field :recipient_id
+  %h2
+    To
+    = @message.recipient.first_name
+    = @message.recipient.last_name
   .field
     = f.label :text
     = f.text_area :text
   .actions
     = f.submit 'Save'
+    = link_to 'Back', messages_path

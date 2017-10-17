@@ -12,7 +12,7 @@ RSpec.describe "messages/new", type: :view do
   it "renders new message form" do
     render
     assert_select "form[action=?][method=?]", messages_path, "post" do
-      assert_select "input[name=?]", "message[recipient_id]"
+      # assert_select "input[name=?]", "message[recipient_id]"
       assert_select "textarea[name=?]", "message[text]"
     end
   end

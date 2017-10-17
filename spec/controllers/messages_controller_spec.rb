@@ -29,7 +29,8 @@ RSpec.describe MessagesController, type: :controller do
 
   describe "GET #new" do
     it "returns a success response" do
-      get :new, params: {}, session: valid_session
+      recipient = create :buyer
+      get :new, params: { recipient_id: recipient.id }, session: valid_session
       expect(response).to be_successful
     end
   end
