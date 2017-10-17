@@ -5,6 +5,12 @@
     <% else %>
       <%= link_to "Log In", new_session_path %>
     <% end %>
+    <% unless current_page? controller: 'messages' %>
+      <%= link_to 'Messages', messages_path %>
+    <% end %>
+    <% unless current_page? controller: 'toys' %>
+      <%= link_to 'Toys', toys_path %>
+    <% end %>
   <% end %>
 
   <% if current_user %>
