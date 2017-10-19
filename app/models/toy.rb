@@ -1,5 +1,6 @@
 class Toy < ApplicationRecord
   validates :name, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 10.00 }
 
   has_attached_file :image, styles: { thumb: '300x300>' }
 
